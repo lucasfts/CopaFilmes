@@ -17,4 +17,14 @@
     <ProjectReference Include="..\..\src\CopaFilmes.Application\CopaFilmes.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Application\Mock\filmes.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Application\Mock\filmes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
