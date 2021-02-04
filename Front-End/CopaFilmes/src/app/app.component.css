@@ -1,0 +1,13 @@
+#copa-container {
+  background-color: #a8a8a8;
+  min-height: 100vh;
+  margin: 0;
+  padding: 50px;
+}
+
+#copa-header {
+  background-color: #6e6e6e;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
