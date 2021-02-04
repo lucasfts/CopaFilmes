@@ -28,5 +28,22 @@ namespace CopaFilmes.Application
 
             return filmes;
         }
+
+        public CampeonatoDTO GerarCampeonato(List<FilmeDTO> filmes)
+        {
+            var filmesSelecionados = filmes.Select(_mapper.Map<Filme>).ToList();
+
+            var eliminatorias = new Eliminatorias(filmesSelecionados);
+
+            var campeonato = new CampeonatoDTO
+            {
+                Filmes = eliminatorias.Filmes.Select(_mapper.Map<FilmeDTO>).ToArray(),
+                Eliminatorias = _mapper.Map<EliminatoriasDTO>(eliminatorias),
+                Campeao = _mapper.Map<FilmeDTO>(eliminatorias.Final.ObterVencedor()),
+                ViceCampeao = _mapper.Map<FilmeDTO>(eliminatorias.Final.ObterPerdedor())
+            };
+
+            return campeonato;
+        }
     }
 }
