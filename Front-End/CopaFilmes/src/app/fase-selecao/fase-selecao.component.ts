@@ -1,3 +1,5 @@
+import { Filme } from './../../models/filme';
+import { CopaService } from './../../services/copa/copa.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fase-selecao.component.css']
 })
 export class FaseSelecaoComponent implements OnInit {
+  filmes: Filme[];
 
-  constructor() { }
+  constructor(private service: CopaService) { }
 
   ngOnInit(): void {
+    this.service.obterFilmes().subscribe(filmes => {
+      console.log(filmes);
+      this.filmes = filmes;
+    });
   }
 
 }

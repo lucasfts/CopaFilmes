@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CopaFilmes.WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("")]
     public class CopaController : ControllerBase
     {
         private readonly CopaService _copaService;

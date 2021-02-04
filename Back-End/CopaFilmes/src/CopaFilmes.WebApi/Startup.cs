@@ -28,6 +28,13 @@ namespace CopaFilmes.WebApi
         {
             services.RegisterDependencies().AddControllers();
 
+            services.AddCors(builder => {
+                builder.AddDefaultPolicy(options =>
+                {
+                    options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddSwaggerGen();
         }
 
@@ -49,6 +56,8 @@ namespace CopaFilmes.WebApi
             });
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
