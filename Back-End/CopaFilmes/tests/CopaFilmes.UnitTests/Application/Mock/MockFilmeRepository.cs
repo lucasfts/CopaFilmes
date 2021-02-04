@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CopaFilmes.UnitTests.Application.Mock
@@ -14,7 +15,7 @@ namespace CopaFilmes.UnitTests.Application.Mock
 
         public MockFilmeRepository()
         {
-            var jsonFilmes = File.ReadAllText("Application/Mock/filmes.json");
+            var jsonFilmes = File.ReadAllText("Application/Mock/filmes.json", Encoding.UTF8);
             filmes = JsonConvert.DeserializeObject<List<Filme>>(jsonFilmes);
         }
 
