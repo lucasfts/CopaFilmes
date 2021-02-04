@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CopaFilmes.Application\CopaFilmes.Application.csproj" />
+    <ProjectReference Include="..\CopaFilmes.Infra.Data\CopaFilmes.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>

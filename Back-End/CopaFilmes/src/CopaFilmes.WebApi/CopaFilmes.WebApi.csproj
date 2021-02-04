@@ -4,5 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CopaFilmes.Application\CopaFilmes.Application.csproj" />
+    <ProjectReference Include="..\CopaFilmes.CrossCutting.IoC\CopaFilmes.CrossCutting.IoC.csproj" />
+  </ItemGroup>
+
 
 </Project>

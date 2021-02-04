@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace CopaFilmes.Application
 {
-    public class CampeonatoService
+    public class CopaService
     {
         private readonly IFilmeRepository _filmeRepository;
         private readonly IMapper _mapper;
 
-        public CampeonatoService(IFilmeRepository filmeRepository, IMapper mapper)
+        public CopaService(IFilmeRepository filmeRepository, IMapper mapper)
         {
             _filmeRepository = filmeRepository;
             _mapper = mapper;
@@ -31,7 +31,7 @@ namespace CopaFilmes.Application
             return filmesDto;
         }
 
-        public CampeonatoDTO GerarCampeonato(List<FilmeDTO> filmes)
+        public CampeonatoDTO GerarCampeonato(IEnumerable<FilmeDTO> filmes)
         {
             var filmesSelecionados = filmes.Select(_mapper.Map<Filme>).ToList();
 

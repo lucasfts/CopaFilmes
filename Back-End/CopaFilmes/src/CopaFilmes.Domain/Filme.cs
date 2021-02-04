@@ -6,12 +6,12 @@ namespace CopaFilmes.Domain
 {
     public class Filme
     {
-        public int Id { get; private set; }
+        public string Id { get; private set; }
         public string Titulo { get; private set; }
         public int Ano { get; private set; }
-        public int Nota { get; private set; }
+        public float Nota { get; private set; }
 
-        public Filme(int id, string titulo, int ano, int nota)
+        public Filme(string id, string titulo, int ano, float nota)
         {
             Id = id;
             Titulo = titulo;
