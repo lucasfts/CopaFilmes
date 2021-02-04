@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CopaFilmes.Domain.Contracts
 {
     public interface IFilmeRepository
     {
-        IEnumerable<Filme> ObterFilmesParticipantes();
+        Task<IEnumerable<Filme>> ObterFilmesAsync();
     }
 }

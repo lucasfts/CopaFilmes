@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CopaFilmes.Application
 {
@@ -20,13 +21,14 @@ namespace CopaFilmes.Application
             _mapper = mapper;
         }
 
-        public IEnumerable<FilmeDTO> ObterFilmesParticipantes()
+        public async Task<IEnumerable<FilmeDTO>> ObterFilmesAsync()
         {
-            var filmes = _filmeRepository.ObterFilmesParticipantes()
-                .Select(_mapper.Map<FilmeDTO>)
-                .ToList();
+            var filmes = await _filmeRepository.ObterFilmesAsync();
 
-            return filmes;
+            var filmesDto = filmes.Select(_mapper.Map<FilmeDTO>)
+                 .ToList();
+
+            return filmesDto;
         }
 
         public CampeonatoDTO GerarCampeonato(List<FilmeDTO> filmes)
