@@ -12,6 +12,9 @@ namespace CopaFilmes.Domain
 
         public Partida(Filme primeiroFilme, Filme segundoFilme)
         {
+            if (primeiroFilme.Id == segundoFilme.Id)
+                throw new Exception("Não é possível realizar a partida entre 2 filmes iguais");
+
             PrimeiroFilme = primeiroFilme;
             SegundoFilme = segundoFilme;
         }

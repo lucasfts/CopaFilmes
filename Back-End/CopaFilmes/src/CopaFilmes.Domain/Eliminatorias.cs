@@ -51,7 +51,7 @@ namespace CopaFilmes.Domain
         {
             SemiFinal = new Partida[2];
 
-            for (int i = 0; i < PrimeiraFase.Length; i++)
+            for (int i = 0; i < SemiFinal.Length; i++)
             {
                 var primeiroFilme = PrimeiraFase[i].ObterVencedor();
                 var segundoFilme = PrimeiraFase[PrimeiraFase.Length - i - 1].ObterVencedor();
