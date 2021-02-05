@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { FaseSelecaoComponent } from './fase-selecao/fase-selecao.component';
 import { ResultadoFinalComponent } from './resultado-final/resultado-final.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CopaHeaderComponent } from './copa-header/copa-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FaseSelecaoComponent,
-    ResultadoFinalComponent
+    ResultadoFinalComponent,
+    CopaHeaderComponent
   ],
   imports: [
     BrowserModule,

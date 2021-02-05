@@ -39,6 +39,23 @@ namespace CopaFilmes.UnitTests.Domain
             Assert.AreEqual(quantidadeValida, eliminatorias.Filmes.Count());
         }
 
+        [TestMethod]
+        public void SucessoAoInstanciarComNumeroDeFilmesValidoEAvancarAteAFinal()
+        {
+            var quantidadeValida = 8;
+            var filmes = GerarListaDeFilmes(quantidadeValida);
+
+
+            var eliminatorias = new Eliminatorias(filmes);
+
+            eliminatorias.OrdenarFilmes()
+                .PreencherPrimeiraFase()
+                .PreencherSemiFinal()
+                .PreencherFinal();
+
+            Assert.AreEqual(quantidadeValida, eliminatorias.Filmes.Count());
+        }
+
         private List<Filme> GerarListaDeFilmes(int quantidadeFilmes)
         {
             var filmes = new List<Filme>();

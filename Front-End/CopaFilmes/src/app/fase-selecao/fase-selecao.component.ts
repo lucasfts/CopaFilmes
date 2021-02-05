@@ -1,6 +1,7 @@
 import { Filme } from './../../models/filme';
 import { CopaService } from './../../services/copa/copa.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fase-selecao',
@@ -11,7 +12,7 @@ export class FaseSelecaoComponent implements OnInit {
   filmes: Filme[];
   totalSelecionados: number = 0;
 
-  constructor(private service: CopaService) { }
+  constructor(private service: CopaService, private router: Router) { }
 
   ngOnInit(): void {
     this.service.obterFilmes().subscribe(filmes => {
@@ -28,10 +29,13 @@ export class FaseSelecaoComponent implements OnInit {
     } else {
       this.totalSelecionados--;
     }
+  }
 
-    console.log(this.filmes);
-    console.log(this.totalSelecionados);
-
+  gerarCampeonato() {
+    var filmesSelecionados = this.filmes.filter(x => x.selecionado);
+    this.service.gerarCampeonato(filmesSelecionados).subscribe(resultado => {
+      this.router.navigateByUrl('/resultado', { state: resultado });
+    });;
   }
 
 }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Campeonato } from './../../models/campeonato';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-resultado-final',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resultado-final.component.css']
 })
 export class ResultadoFinalComponent implements OnInit {
+  resultado: Campeonato;
 
-  constructor() { }
+  constructor(private router: Router) {
+    console.log(this.router.getCurrentNavigation().extras.state);
+    this.resultado = this.router.getCurrentNavigation().extras.state as Campeonato;
+  }
 
   ngOnInit(): void {
+
   }
 
 }

@@ -18,23 +18,16 @@ namespace CopaFilmes.Domain
                 throw new Exception("As eliminatorias devem ter 8 filmes");
 
             Filmes = filmes.ToArray();
-            MontarChaveamento();
         }
 
-        private void MontarChaveamento()
-        {
-            OrdenarFilmes();
-            PreencherPrimeiraFase();
-            PreencherSemiFinal();
-            PreencherFinal();
-        }
-
-        private void OrdenarFilmes()
+        public Eliminatorias OrdenarFilmes()
         {
             Filmes = Filmes.OrderBy(x => x.Titulo).ToArray();
+
+            return this;
         }
 
-        private void PreencherPrimeiraFase()
+        public Eliminatorias PreencherPrimeiraFase()
         {
             var totalPartidas = 4;
 
@@ -45,10 +38,15 @@ namespace CopaFilmes.Domain
                 var segundoFilme = Filmes[Filmes.Length - i - 1];
                 PrimeiraFase[i] = new Partida(primeiroFilme, segundoFilme);
             }
+
+            return this;
         }
 
-        private void PreencherSemiFinal()
+        public Eliminatorias PreencherSemiFinal()
         {
+            if (PrimeiraFase == null || PrimeiraFase.Count() < 4)
+                throw new Exception("Não é possível avançar para a semifinal antes da primeira fase");
+
             SemiFinal = new Partida[2];
 
             for (int i = 0; i < SemiFinal.Length; i++)
@@ -57,13 +55,20 @@ namespace CopaFilmes.Domain
                 var segundoFilme = PrimeiraFase[PrimeiraFase.Length - i - 1].ObterVencedor();
                 SemiFinal[i] = new Partida(primeiroFilme, segundoFilme);
             }
+
+            return this;
         }
 
-        private void PreencherFinal()
+        public Eliminatorias PreencherFinal()
         {
+            if (SemiFinal == null || SemiFinal.Count() < 2)
+                throw new Exception("Não é possível avançar para a final antes da semifinal");
+
             var primeiroFilme = SemiFinal[0].ObterVencedor();
             var segundoFilme = SemiFinal[1].ObterVencedor();
             Final = new Partida(primeiroFilme, segundoFilme);
+
+            return this;
         }
     }
 }

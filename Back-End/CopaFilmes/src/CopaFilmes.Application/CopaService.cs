@@ -37,6 +37,11 @@ namespace CopaFilmes.Application
 
             var eliminatorias = new Eliminatorias(filmesSelecionados);
 
+            eliminatorias.OrdenarFilmes()
+                .PreencherPrimeiraFase()
+                .PreencherSemiFinal()
+                .PreencherFinal();
+
             var campeonato = new CampeonatoDTO
             {
                 Filmes = eliminatorias.Filmes.Select(_mapper.Map<FilmeDTO>).ToArray(),

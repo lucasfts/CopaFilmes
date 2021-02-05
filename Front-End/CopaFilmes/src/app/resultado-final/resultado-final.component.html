@@ -1,1 +1,24 @@
-<p>resultado-final works!</p>
+<app-copa-header [titulo]="'Resultado Final'"
+    [resumo]="'Veja o resultado final do Campeonato de filmes de forma simples e rápida'">
+</app-copa-header>
+<div class="row">
+    <div class="d-flex flex-row mt-3">
+        <div class="bg-dark text-white fs-1 p-2">
+            1º
+        </div>
+        <div class="bg-white p-2 fs-2 w-100">
+            {{ resultado.campeao.titulo }}
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3">
+        <div class="bg-dark text-white fs-1 p-2">
+            2º
+        </div>
+        <div class="bg-white p-2 fs-2 w-100">
+            {{ resultado.viceCampeao.titulo }}
+        </div>
+    </div>
+</div>
+<div class="mt-5">
+    <button class="btn btn-dark d-block w-100" [routerLink]="['/']">VOLTAR</button>
+</div>

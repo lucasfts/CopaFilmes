@@ -1,10 +1,14 @@
+<app-copa-header [titulo]="'Fase de Seleção'"
+    [resumo]="'Veja o resultado final do campeonato de filmes de forma simples e rápida'">
+</app-copa-header>
 <div class="row p-2">
     <div class="col-6 align-self-center text-white fw-bold">
         <p class="p-0 m-0">Selecionados</p>
         <p class="p-0 m-0">{{ totalSelecionados }} de 8</p>
     </div>
     <div class="col-6 align-self-center" style="text-align: right;">
-        <button class="btn btn-dark ">GERAR MEU CAMPEONATO</button>
+        <button class="btn btn-dark" (click)="gerarCampeonato()" [disabled]="totalSelecionados != 8">GERAR MEU
+            CAMPEONATO</button>
     </div>
 </div>
 <div class=" row">
