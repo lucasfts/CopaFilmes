@@ -1,13 +1,23 @@
-<div class="col-4">
-    <div class="row">
-        <div class="col-6">
-            <div class="col-4" *ngFor="let filme of filmes;">
-                {{ filme.titulo }}
+<div class="row p-2">
+    <div class="col-6 align-self-center text-white fw-bold">
+        <p class="p-0 m-0">Selecionados</p>
+        <p class="p-0 m-0">{{ totalSelecionados }} de 8</p>
+    </div>
+    <div class="col-6 align-self-center" style="text-align: right;">
+        <button class="btn btn-dark ">GERAR MEU CAMPEONATO</button>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-3" *ngFor="let filme of filmes; let index = index;">
+        <div class="d-flex flex-row bg-white m-2 p-2">
+            <div class="p-2 align-self-center">
+                <input class="form-check-input" type="checkbox"
+                    [disabled]="filmes[index].selecionado != true && totalSelecionados == 8"
+                    (change)="selecionarFilme(filme, $event)">
             </div>
-        </div>
-        <div class="col-6">
-            <div class="col-4" *ngFor="let filme of filmes;">
-                {{ filme.titulo }}
+            <div class="p-2  align-self-center">
+                <p class="fw-bold m-0">{{ filme.titulo }}</p>
+                <p class="m-0">{{ filme.ano }}</p>
             </div>
         </div>
     </div>

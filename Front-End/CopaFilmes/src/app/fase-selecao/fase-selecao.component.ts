@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaseSelecaoComponent implements OnInit {
   filmes: Filme[];
+  totalSelecionados: number = 0;
 
   constructor(private service: CopaService) { }
 
@@ -17,6 +18,20 @@ export class FaseSelecaoComponent implements OnInit {
       console.log(filmes);
       this.filmes = filmes;
     });
+  }
+
+  selecionarFilme(filme, event) {
+    filme.selecionado = event.target.checked;
+
+    if (event.target.checked) {
+      this.totalSelecionados++;
+    } else {
+      this.totalSelecionados--;
+    }
+
+    console.log(this.filmes);
+    console.log(this.totalSelecionados);
+
   }
 
 }
