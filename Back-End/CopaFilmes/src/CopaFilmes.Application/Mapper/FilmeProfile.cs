@@ -11,7 +11,7 @@ namespace CopaFilmes.Application.Mapper
     {
         public FilmeProfile()
         {
-            CreateMap<Filme, FilmeDTO>().ReverseMap();
+            CreateMap<Filme, FilmeDTO>();
         }
     }
 }
