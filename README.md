@@ -27,3 +27,17 @@ A partir do diretório raiz digite os comandos a seguir:
     ng serve
 ```
 Pronto a aplicação estará disponível através da url http://localhost:4200
+
+### Executando os testes de unidade
+A partir do diretório raiz digite os comandos a seguir:
+```
+    cd Back-End\CopaFilmes\tests\CopaFilmes.UnitTests
+    dotnet test
+```
+
+### Executando os testes de integração
+A partir do diretório raiz digite os comandos a seguir:
+```
+    cd Back-End\CopaFilmes\tests\CopaFilmes.IntegrationTests
+    dotnet test
+```
